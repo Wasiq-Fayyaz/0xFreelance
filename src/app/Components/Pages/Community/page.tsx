@@ -12,6 +12,12 @@ import { motion } from "framer-motion";
 export default function Community() {
   const [ref, isInView] = useInView({ threshold: 0.1 });
   return (
+    <motion.div
+    ref={ref}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+    transition={{ duration: 0.5 }}
+  >
     <section className="mt-24">
       <h2 className="text-4xl font-bold tracking-normal text-gradient text-center md:text-5xl">
         Community
@@ -37,12 +43,7 @@ export default function Community() {
         </p>
       
       
-        <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
-      transition={{ duration: 0.5 }}
-    >
+     
       <div className="flex justify-center gap-6 mt-10">
         <Link href={""} title="Telegram">
           <FaTelegramPlane className="w-8 h-8 md:w-12 md:h-12 text-slate-200" />
@@ -64,7 +65,8 @@ export default function Community() {
           ></Image>
         </Link>
       </div>
-      </motion.div>
+      
     </section>
+    </motion.div>
   );
 }

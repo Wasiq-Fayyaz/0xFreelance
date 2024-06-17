@@ -17,6 +17,12 @@ import Link from "next/link";
 export default function Guide() {
   const [ref, isInView] = useInView({ threshold: 0.1 });
   return (
+    <motion.div
+    ref={ref}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+    transition={{ duration: 0.5 }}
+  >
     <section className="mt-24">
       <h2 className="text-4xl font-bold tracking-normal text-gradient text-center md:text-5xl">
         Guide for Bot
@@ -26,12 +32,7 @@ export default function Guide() {
       Explore an Extensive, Easy-to-Follow Guide to Using the 0xFreelance Market—Each Step Unveils Detailed Instructions and Insightful Tips, Ensuring You Master Every Functionality Effortlessly.
       </p>
 
-      <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
-      transition={{ duration: 0.5 }}
-    >
+   
       <div>
       <div className="flex flex-col xl:flex-row justify-between items-center mt-4 lg:flex lg:flex-nowrap gap-16">
         <div className="flex flex-col gap-10">
@@ -109,7 +110,7 @@ export default function Guide() {
         <FaArrowCircleLeft className="hidden text-purple-400/30 text-7xl animate-pulse md:block"/>
       </div>
       </div>
-      </motion.div>
     </section>
+    </motion.div>
   );
 }

@@ -5,7 +5,6 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import About from "./Pages/About/page";
 import Discover from "./Pages/Why/page";
 import Guide from "./Pages/Guide/page";
@@ -13,8 +12,11 @@ import Community from "./Pages/Community/page";
 import Tokenomics from "./Pages/Tokenomics/page";
 import Features from "./Pages/Features/page";
 import Dapp from "./Pages/Dapp/page";
+import useInView from "./CustomHooks";
+import { motion } from "framer-motion";
 
 export default function Header() {
+  const [ref, isInView] = useInView({ threshold: 0.1 });
   let [isMenuOpen, setisMenuOpen] = useState(false);
 
   function ToggleNav() {
@@ -234,76 +236,29 @@ export default function Header() {
           </Button>
         </div>
       </div>
+      <motion.div
+    ref={ref}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+    transition={{ duration: 0.5 }}
+  >
+   
       <section id="home" className="flex flex-col justify-center p-5 lg:p-10">
         <div className="flex flex-col items-center justify-center gap-3">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {
-                scale: 0.3,
-                opacity: 0,
-              },
-              visible: {
-                scale: 1,
-                opacity: 1,
-
-                transition: {
-                  delay: 0.5,
-                  transform: 0.3,
-                },
-              },
-            }}
-          >
+        
             <h1 className="text-5xl mt-6 font-bold tracking-normal bg-white text-gradient md:text-7xl lg:text-9xl">
               0xFreeLance
             </h1>
-          </motion.div>
+          
 
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {
-                scale: 0.3,
-                opacity: 0,
-              },
-              visible: {
-                scale: 1,
-                opacity: 1,
-
-                transition: {
-                  delay: 0.5,
-                  transform: 0.3,
-                },
-              },
-            }}
-          >
+      
             <h4 className="text-xl text-center mt-2 lg:text-3xl font-medium tracking-tight text-purple-600 border-t-2 border-b-2 border-y-purple-700 rounded-lg p-3">
               Empower Your Freelance Career with AI-Driven Opportunities
             </h4>
-          </motion.div>
+          
         </div>
 
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: {
-              scale: 0.3,
-              opacity: 0,
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-
-              transition: {
-                delay: 0.7,
-                transform: 0.3,
-              },
-            },
-          }}
-        >
+   
           <div className="flex flex-col justify-center items-center mt-8">
             <p className="text-slate-200 text-justify text-base md:text-lg tracking-normal w-full lg:w-full leading-10">
               Unlock your potential with blockchain-powered freelance
@@ -321,8 +276,9 @@ export default function Header() {
               </button>
             </div>
           </div>
-        </motion.div>
+        
       </section>
+      </motion.div>
 
       <section id="about" className="p-5">
         <About />

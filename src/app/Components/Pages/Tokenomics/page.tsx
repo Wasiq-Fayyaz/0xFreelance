@@ -29,6 +29,12 @@ export default function Tokenomics() {
     createData("5", "Partnership and Listings", "10%"),
   ];
   return (
+    <motion.div
+    ref={ref}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+    transition={{ duration: 0.5 }}
+  >
     <section className="flex flex-col items-center mt-24">
       
         <h2 className="text-4xl font-bold tracking-normal text-gradient text-center md:text-5xl">
@@ -46,12 +52,7 @@ export default function Tokenomics() {
               freelance ecosystem
         </p>
 
-        <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
-      transition={{ duration: 0.5 }}
-    >
+  
         <div className="flex flex-col items-center xl:flex-row gap-24 xl:gap-44 mt-16 w-full">
            
            
@@ -119,7 +120,8 @@ export default function Tokenomics() {
            </div>
            </div>
          </div>
-         </motion.div>
+         
     </section>
+    </motion.div>
   );
 }

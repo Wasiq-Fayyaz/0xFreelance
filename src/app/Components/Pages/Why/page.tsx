@@ -11,6 +11,12 @@ import { motion } from "framer-motion";
 export default function Discover() {
   const [ref, isInView] = useInView({ threshold: 0.1 });
   return (
+    <motion.div
+    ref={ref}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+    transition={{ duration: 0.5 }}
+  >
     <section className="mt-24">
       <h2 className="text-4xl font-bold tracking-normal text-gradient text-center md:text-5xl">
         Why Choose 0xFreelance
@@ -27,12 +33,7 @@ export default function Discover() {
           AI powered solution.
         </p>
       
-        <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
-      transition={{ duration: 0.5 }}
-    >
+  
       <div className="flex flex-col xl:flex-row justify-between items-center gap-5 xl:gap-24 mt-10">
 
       
@@ -72,7 +73,8 @@ export default function Discover() {
       </div>
 
       </div>
-      </motion.div>
+      
     </section>
+    </motion.div>
   );
 }

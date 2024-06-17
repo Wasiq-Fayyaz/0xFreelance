@@ -37,6 +37,12 @@ export default function Gallery() {
   const [ref, isInView] = useInView({ threshold: 0.1 });
   SwiperCore.use([Pagination, Autoplay]);
   return (
+    <motion.div
+    ref={ref}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+    transition={{ duration: 0.5 }}
+  >
     <section className="mt-24">
       <h2 className="text-4xl font-bold tracking-normal text-gradient text-center md:text-5xl">
         Dapp
@@ -52,12 +58,7 @@ export default function Gallery() {
         and preferences, ensuring optimal collaboration and efficiency
       </p>
 
-      <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
-      transition={{ duration: 0.5 }}
-    >
+    
       <div className="flex flex-col items-center justify-center relative">
         <div className="absolute w-full  h-full blur-2xl bg-purple-400/10 opacity-50"></div>
 
@@ -127,7 +128,8 @@ export default function Gallery() {
           </div>
         </div>
       </div>
-      </motion.div>
+
     </section>
+    </motion.div>
   );
 }

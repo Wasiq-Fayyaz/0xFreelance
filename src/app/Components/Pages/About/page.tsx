@@ -17,6 +17,12 @@ import useInView from "../../CustomHooks";
 export default function About() {
   const [ref, isInView] = useInView({ threshold: 0.1 });
   return (
+    <motion.div
+    ref={ref}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+    transition={{ duration: 0.5 }}
+  >
     <section className="flex flex-col items-center justify-center mt-8">
       <div className="flex justify-center items-center gap-3 p-6 backdrop-blur bg-gradient-to-r from-transparent via-purple-400/20 to-transparent w-full animate-pulse">
         <h5 className="text-sm font-medium tracking-tight text-purple-400 md:text-3xl">
@@ -47,12 +53,7 @@ export default function About() {
             </p>
           </div>
           
-          <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
-      transition={{ duration: 0.5 }}
-    >
+   
         <div className="flex flex-col xl:flex-row  xl:justify-center gap-16 mt-10">
 
         <div className="flex flex-row xl:flex-col justify-between">
@@ -99,13 +100,9 @@ export default function About() {
           </div> */}
 
         </div>
-        </motion.div>
-
-
-
-       
       </div>
       
     </section>
+    </motion.div>
   );
 }
