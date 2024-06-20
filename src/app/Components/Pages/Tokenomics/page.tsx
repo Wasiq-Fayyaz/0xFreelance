@@ -84,7 +84,7 @@ export default function Tokenomics() {
            
 
 
-           <div className="flex justify-center relative w-9/12 md:w-2/5 lg:w-1/3 xl:w-2/6">
+           <div className="flex justify-center relative w-9/12 md:w-2/5 lg:w-1/3 xl:w-3/12">
              <div className="flex justify-center items-center absolute border-y-8 rounded-full border-purple-400 h-full w-full animate-spin">
              </div>
              <div className="flex justify-center items-center absolute h-full w-full">
