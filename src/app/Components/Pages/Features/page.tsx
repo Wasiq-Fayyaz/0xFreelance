@@ -40,7 +40,7 @@ export default function Features() {
         <div className="flex flex-col items-center xl:flex-row gap-8 w-full">
           <div className="transition ease-in-out delay-150 w-full xl:w-full xl:h-72  flex flex-col gap-3 items-center justify-center backdrop-blur bg-purple-400/5 border-2 border-purple-400 rounded-xl p-3 md:p-5 shadow-md shadow-purple-400/30 hover:brightness-150 background--feature duration-200">
             <MdOutlinePostAdd className="text-purple-400 text-6xl mt-3" />
-            <h2 className="text-purple-300 font-bold tracking-normal text-2xl">
+            <h2 className="text-purple-300 font-bold tracking-normal text-2xl text-center">
               Job Posting and Bidding
             </h2>
             <p className="text-slate-200 leading-7 text-justify text-sm">
@@ -114,7 +114,7 @@ export default function Features() {
         <div className="flex flex-col items-center xl:flex-row gap-8">
           <div className="transition ease-in-out delay-150 w-full xl:w-1/2 xl:h-72 flex flex-col gap-3 items-center justify-center backdrop-blur bg-purple-400/5 border-2 border-purple-400 rounded-xl p-3 md:p-5 shadow-md shadow-purple-400/30 hover:brightness-150 background--feature duration-200">
             <BsSafeFill className="text-purple-400 text-6xl mt-3" />
-            <h2 className="text-purple-300 font-bold tracking-normal text-2xl">
+            <h2 className="text-purple-300 font-bold tracking-normal text-2xl text-center">
             Smart Contracts as Escrow
             </h2>
             <p className="text-slate-200 leading-7 text-justify text-sm">
