@@ -11,7 +11,7 @@ import { ToastContainer } from 'react-toastify'
 
 const inter = Inter({ subsets: ['latin'] })
 const exo = Exo({
-  weight: ['400', '700'], // Specify the font weights you want to use
+  weight: ['100','200','300','400','500','600','700','800'], // Specify the font weights you want to use
   subsets: ['latin'], // Specify the subsets you need
   display: "swap",
 });
