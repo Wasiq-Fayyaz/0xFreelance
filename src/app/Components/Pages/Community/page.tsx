@@ -8,22 +8,20 @@ import Link from "next/link";
 import Typewriter from "typewriter-effect";
 import useInView from "../../CustomHooks";
 import { motion } from "framer-motion";
+import { Fade, Slide } from "react-awesome-reveal";
 
 export default function Community() {
   const [ref, isInView] = useInView({ threshold: 0.1 });
   return (
-    <motion.div
-    ref={ref}
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
-    transition={{ duration: 0.5 }}
-  >
-    <section className="mt-24">
+    
+    <section className="mt-16 md:mt-24">
+      <Fade cascade>
       <h2 className="text-4xl font-bold tracking-normal text-gradient text-center md:text-5xl">
         Community
       </h2>
+      
     
-      <h2 className="text-base text-center md:text-xl lg:text-3xl font-bold text-violet-400 tracking-wide mt-8">
+      <h2 className="text-base text-center md:text-xl lg:text-2xl font-semibold text-sky-400 tracking-wide mt-8">
       <Typewriter
                 options={{
                   loop: true,
@@ -37,14 +35,17 @@ export default function Community() {
                     .start();
                 }}
               />
+              
       </h2>
-        <p className="mt-5 text-slate-200 text-justify text-lg tracking-normal w-full lg:w-full leading-8 w-1/2 mt-10">
+      </Fade>
+        <p className="text-white text-justify lg:text-center text-base md:text-xl mt-5 tracking-normal lg:w-full leading-8 lg:leading-8">
         Join our thriving community today and become part of a groundbreaking ecosystem that is revolutionizing the way you work and achieve success. Embrace the future with our innovative platform, where blockchain ensures secure, transparent transactions and AI matches you with the best opportunities. Sign up now to unlock limitless possibilities and take your freelancing career to the next level.
         </p>
       
       
      
       <div className="flex justify-center gap-6 mt-10">
+        <Fade cascade>
         <Link href={""} title="Telegram">
           <FaTelegramPlane className="w-8 h-8 md:w-12 md:h-12 text-slate-200" />
         </Link>
@@ -64,9 +65,10 @@ export default function Community() {
             className="w-8 h-8 md:w-12 md:h-12"
           ></Image>
         </Link>
+        </Fade>
       </div>
       
     </section>
-    </motion.div>
+  
   );
 }

@@ -19,7 +19,7 @@ export default function Footer(){
   
     return(
         
-        <footer className="flex flex-wrap flex-col backdrop-blur bg-purple-400/10 py-4">
+        <footer className="flex flex-wrap flex-col backdrop-blur bg-sky-400/10 py-4">
         <div className='flex flex-wrap md:flex-nowrap px-5 pt-5 gap-6 md:gap-0 items-center justify-center md:justify-between'>
 
       

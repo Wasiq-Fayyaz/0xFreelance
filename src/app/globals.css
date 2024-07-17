@@ -7,6 +7,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 
 
 
@@ -78,10 +81,11 @@
  
 
   body {
+    
     overflow-x:hidden;
     width:100%;
     max-width:100%;
-    min-width:100%
+    min-width:100%;
   }
 
 
@@ -91,21 +95,29 @@
     left: 0;
     width: 100%;
     height: 100%;
-  background: url("../app/Images/home2.jpeg") no-repeat center center;
-  filter: contrast(1.1) brightness(40%);
+  background: url("../app/Images/home_bg_1.jpeg") no-repeat center center;
+  filter: contrast(1.1) brightness(30%);
   background-size: cover;
   z-index: -1;
-
 }
 
-.vision-background{
-  background: url('../app/Images/about1.jpeg') no-repeat center center;
+.Ca--bg{
+  background: url('../app/Images/home_bg_4.jpeg') no-repeat center center;
   background-size: cover;
   
 }
 
+
+
+.vision-background{
+  background: url('../app/Images/home_bg_3.jpeg') no-repeat center center;
+  background-size: cover;
+  
+  
+}
+
 .background--feature{
-  background: url('../app/Images/backgroundFeature.jpeg') no-repeat center center;
+  background: url('../app/Images/home_bg_2.jpeg') no-repeat center center;
   background-size: cover;
   transition: transform 0.3s ease;
 }
@@ -195,7 +207,7 @@ ul li:hover::before {
   height: 100vh; 
   text-decoration: none;
   z-index: 9999;
-  background-color: rgba(133, 15, 141,0.2); 
+  background-color: rgba(2, 132, 199,0.2); 
   backdrop-filter: blur(10px);
 }
 
@@ -236,13 +248,13 @@ ul li:hover::before {
 
 
 .text-gradient {
-  background: linear-gradient(to right, rgb(5, 80, 219), rgb(175, 71, 210));
+  background: linear-gradient(to right, rgb(2 132 199), rgb(56 189 248));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 :root {
-  --glow-color: hsl(263, 100%, 69%);
+  --glow-color: hsl(198, 92%, 60%);
 }
 
 *,
@@ -261,7 +273,8 @@ ul li:hover::before {
   border-radius: 0.45em;
   background: none;
   perspective: 2em;
-  font-family: "Raleway", sans-serif;
+  /* font-family: "Raleway", sans-serif; */
+  font-family: "Exo", sans-serif;
   font-size: 1.3em;
   font-weight: 900;
   letter-spacing: 1em;
@@ -276,7 +289,7 @@ ul li:hover::before {
 }
 
 .glowing-txt {
-  float: left;
+  float: none;
   margin-right: -0.8em;
   -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
     0 0 0.45em var(--glow-color);
@@ -503,3 +516,108 @@ ul li:hover::before {
 .tomato {
   background: linear-gradient(to right, tomato 0%, gold 100%);
 }
+
+
+
+
+
+
+.buttons {
+  
+  text-align: center;
+}
+
+.btn-hover {
+
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+
+  border-radius: 50px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+
+.btn-hover.color-1 {
+  background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+  box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+.btn-hover.color-2 {
+  background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+.btn-hover.color-3 {
+  background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+  box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+.btn-hover.color-4 {
+  background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+  box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
+}
+.btn-hover.color-5 {
+  background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+  box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+.btn-hover.color-6 {
+  background-image: linear-gradient(to right, #009245, #FCEE21, #00A8C5, #D9E021);
+  box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+}
+.btn-hover.color-7 {
+  background-image: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+  box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+}
+.btn-hover.color-8 {
+  background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+.btn-hover.color-9 {
+  background-image: linear-gradient(to right, #0284C7, #4481eb, #0284C7, #3f86ed);
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+.btn-hover.color-10 {
+      background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+  box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+.btn-hover.color-11 {
+     background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

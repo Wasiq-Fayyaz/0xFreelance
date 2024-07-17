@@ -14,10 +14,31 @@ import Features from "./Pages/Features/page";
 import Dapp from "./Pages/Dapp/page";
 import useInView from "./CustomHooks";
 import { motion } from "framer-motion";
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import Image from "next/image";
+import { Fade,Slide } from "react-awesome-reveal";
+import CA from "./Pages/CA/page";
+import { FaEthereum, } from "react-icons/fa";
+import { SiBitcoinsv } from "react-icons/si";
+
+
 
 export default function Header() {
   const [ref, isInView] = useInView({ threshold: 0.1 });
   let [isMenuOpen, setisMenuOpen] = useState(false);
+  const notify = () => toast.info('Coming Soon!', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    transition: Bounce,
+    });;
 
   function ToggleNav() {
     setisMenuOpen(!isMenuOpen);
@@ -32,12 +53,12 @@ export default function Header() {
   }, [isMenuOpen]);
 
   return (
-    <header className="p-4 lg:p-10 w-full flex items-center justify-center sm:flex items-center lg:flex flex-col justify-between items-center">
+    <header className="w-full flex items-center justify-center sm:flex items-center lg:flex flex-col justify-between items-center">
       <div className="header--img"></div>
-      <div className="flex justify-between items-center w-full ">
+      <div className="p-4 lg:p-6 flex justify-between items-center w-full ">
         <div>
           {/* <Image src={medicure} width={40} height={40}></Image> */}
-          <h2 className="text-lg lg:hidden xl:block text-slate-200 font-normal tracking-tight">
+          <h2 className="text-lg  xl:block text-white font-normal tracking-tight">
             0xFreelance
           </h2>
         </div>
@@ -46,12 +67,6 @@ export default function Header() {
         <ul
           className={`${isMenuOpen ? "mobile--header--categories" : "hidden"}`}
         >
-          <AnchorLink href="/">
-            <p className="leading-7 text-base  font-regular tracking-wide">
-              Home
-            </p>
-          </AnchorLink>
-
           <li>
             <AnchorLink href="#about">
               <p
@@ -130,14 +145,14 @@ export default function Header() {
 
           <li>
             <AnchorLink href="">
-              <p className="leading-7 text-base font-regular tracking-wider text-slate-200">
+              <p className="leading-7 text-base font-regular tracking-wider text-white">
                 Whitepaper
               </p>
             </AnchorLink>
           </li>
           <li>
             <AnchorLink href="">
-              <p className="leading-7 text-base font-regular tracking-wider text-slate-200">
+              <p className="leading-7 text-base font-regular tracking-wider text-white">
                 Buy Now
               </p>
             </AnchorLink>
@@ -150,21 +165,13 @@ export default function Header() {
           onClick={ToggleNav}
         >
           {isMenuOpen ? (
-            <CloseOutlinedIcon className="fontSize: 60px text-slate-200" />
+            <CloseOutlinedIcon className="fontSize: 60px text-white" />
           ) : (
-            <MenuOutlinedIcon className="fontSize: 60px text-slate-200" />
+            <MenuOutlinedIcon className="fontSize: 60px text-white" />
           )}
         </div>
 
-        <ul className="hidden lg:flex gap-5 text-slate-200">
-          <li>
-            <AnchorLink href="/">
-              <p className="leading-7 text-base font-normal tracking-wide">
-                Home
-              </p>
-            </AnchorLink>
-          </li>
-
+        <ul className="hidden lg:flex gap-5 text-white">
           <li>
             <AnchorLink href="#about">
               <p className="leading-7 text-sm font-normal tracking-wide">
@@ -231,54 +238,68 @@ export default function Header() {
         </ul>
 
         <div className="hidden lg:flex">
-          <Button className="hidden md:block backdrop-blur bg-purple-400/40 hover:bg-purple-600 transition duration-500 ease-in-out text-slate-200">
+          <Button
+            className="hidden md:block backdrop-blur bg-sky-400/50 hover:bg-sky-600 transition duration-500 ease-in-out text-white"
+            onClick={notify}
+          >
+            
             Buy Now
           </Button>
         </div>
       </div>
-      <motion.div
-    ref={ref}
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
-    transition={{ duration: 0.5 }}
-  >
-   
-      <section id="home" className="flex flex-col justify-center p-5 lg:p-10">
-        <div className="flex flex-col items-center justify-center gap-3">
-        
-            <h1 className="text-5xl mt-6 font-bold tracking-normal bg-white text-gradient md:text-7xl lg:text-9xl">
+
+      <section
+        id="home"
+        className="relative flex flex-col justify-center p-5 lg:p-7 w-full"
+      >
+       
+        <div className="flex flex-col items-center justify-center gap-3 mt-5">
+          <Fade cascade className="flex justify-center w-full">
+            <div className="flex justify-center md:justify-between w-full">
+            <FaEthereum className="hidden md:block text-sky-600 text-6xl border-2 border-slate-400 rounded-full p-2 animate-bounce"/>
+            <h1 className="text-5xl font-bold tracking-normal text-center bg-white text-gradient md:text-7xl lg:text-9xl">
               0xFreeLance
             </h1>
-          
+            <FaEthereum className="hidden md:block text-sky-600 text-6xl border-2 border-slate-400 rounded-full p-2 animate-bounce"/>
+            </div>
 
-      
-            <h4 className="text-xl text-center mt-2 lg:text-3xl font-medium tracking-tight text-purple-600 border-t-2 border-b-2 border-y-purple-700 rounded-lg p-3">
-              Empower Your Freelance Career with AI-Driven Opportunities
+            <h4 className="text-xl text-center mt-2 lg:text-3xl font-medium tracking-normal text-sky-400 border-t-2  border-t-sky-400  p-3">
+              Empower Your <span className="text-white">Freelance</span> Career
+              with <span className="text-white">AI-Driven</span> Opportunities
             </h4>
-          
-        </div>
 
-   
-          <div className="flex flex-col justify-center items-center mt-8">
-            <p className="text-slate-200 text-justify text-base md:text-lg tracking-normal w-full lg:w-full leading-10">
-              Unlock your potential with blockchain-powered freelance
-              marketplaces! Seamlessly connect with top clients, ensure secure
-              transactions, and maximize your earnings. Experience the future of
-              freelancing where blockchain technology meets opportunity,
-              transforming the way you work and succeed.
-            </p>
-            <div className="mt-10 relative">
-              <div className="w-full h-full absolute blur-3xl bg-purple-600 opacity-50"></div>
-              <button className="glowing-btn absolute">
-                <span className="glowing-txt">
-                  JO<span className="faulty-letter">IN</span> US
+            <div className="flex justify-center">
+              <p className="text-white text-justify lg:text-center text-base md:text-xl tracking-normal w-full lg:w-10/12 leading-7 md:leading-8 lg:leading-8">
+                Unlock your potential with blockchain-powered freelance
+                marketplaces! Seamlessly connect with top clients, ensure secure
+                transactions, and maximize your earnings. Experience the future
+                of freelancing where blockchain technology meets opportunity,
+                transforming the way you work and succeed.
+              </p>
+            </div>
+
+            
+            <div className="flex justify-center md:justify-between items-center w-full">
+            <SiBitcoinsv className="hidden md:block text-sky-600 text-6xl border-2 border-slate-400 rounded-full p-2 animate-bounce"/>
+            <button className="glowing-btn w-3/4 md:w-1/2 lg:2/5 xl:w-1/3 mt-10" onClick={notify}>
+                <span className="glowing-txt text-lg">
+                  JOIN <span className="faulty-letter">US</span>
                 </span>
               </button>
+              
+            <SiBitcoinsv className="hidden md:block text-sky-600 text-6xl border-2 border-slate-400 rounded-full p-2 animate-bounce"/>
             </div>
-          </div>
-        
+              
+             
+              
+          
+          </Fade>
+        </div>
       </section>
-      </motion.div>
+
+      <section className="w-full">
+        <CA />
+      </section>
 
       <section id="about" className="p-5">
         <About />
